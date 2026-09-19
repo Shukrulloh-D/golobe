@@ -1,0 +1,31 @@
+:root {
+  --color-primary: #8dd3bb;
+  --color-dark: #112211;
+  --color-white: #ffffff;
+  --color-gray: #797979;
+  --font-family: "Montserrat", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: #f7f7f7; /* Светло-серый фон из макета */
+  color: var(--color-dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+ul {
+  list-style: none;
+}

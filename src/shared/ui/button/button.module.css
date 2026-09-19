@@ -1,0 +1,21 @@
+.button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.primary {
+  background-color: var(--color-primary);
+  color: var(--color-dark);
+}
+.primary:hover {
+  background-color: #7ac2aa;
+}
+.dark {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+.dark:hover {
+  opacity: 0.8;
+}
