@@ -1,16 +1,57 @@
-# React + Vite
+# Домашнее задание: Массивы
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Простой уровень
 
-Currently, two official plugins are available:
+1. Создай массив из 5 любых чисел тремя разными способами: через литерал `[]`, через `Array.of()` и через `Array.from()`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+2. Дан массив `const arr = [10, 20, 30, 40, 50];`. Выведи в консоль первый элемент, последний элемент (через `arr.length - 1`) и последний элемент через `at(-1)`.
 
-## React Compiler
+3. Дан массив `const fruits = ["apple", "banana", "cherry"];`. Переберите его тремя способами: обычным циклом `for`, циклом `while` и `for...of`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+4. Дан массив `const numbers = [1, 2, 3, 4, 5];`. С помощью `map()` создай новый массив, где каждое число умножено на 3. Проверь, что исходный массив не изменился.
 
-## Expanding the ESLint configuration
+5. Дан массив `const words = ["JS", "is", "fun"];`. Собери из него строку через `join(" ")`, а затем через `join("-")`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Средний уровень
+
+6. Дан массив объектов:
+   ```js
+   const users = [
+     { id: 1, name: "Alice", age: 25 },
+     { id: 2, name: "Bob", age: 17 },
+     { id: 3, name: "Charlie", age: 30 },
+   ];
+   ```
+   Найди пользователя с `id === 2` через `find()`, проверь через `some()`, есть ли несовершеннолетние, и получи массив имён только совершеннолетних пользователей через `filter()` + `map()`.
+
+7. Дан массив `const nums = [5, 3, 8, 1, 9, 2];`. Отсортируй его по возрастанию и по убыванию с помощью `sort()` и правильного компаратора (не забудь, что `sort()` по умолчанию сравнивает как строки).
+
+8. Дан массив `const arr = [1, 2, 3, 4, 5];`. Реализуй функцию `sum(arr)`, которая считает сумму всех элементов через `reduce()`. Затем реализуй то же самое обычным циклом `for` и сравни два подхода.
+
+9. Дан массив `const matrix = [1, [2, 3], [4, [5, 6]]];`. Разверни его в плоский массив `[1, 2, 3, 4, 5, 6]` с помощью `flat()` с подходящим значением глубины.
+
+10. Дан массив `const arr = [1, 2, 3];`. Покажи разницу между мутирующими и иммутабельными методами: сравни `arr.reverse()` и `arr.toReversed()`, `arr.sort()` и `arr.toSorted()` — выведи исходный массив после каждого вызова.
+
+## Сложный уровень
+
+11. Дан массив заказов:
+    ```js
+    const orders = ["pizza", "sushi", "pizza", "burger", "pizza", "sushi"];
+    ```
+    С помощью `reduce()` посчитай, сколько раз встречается каждый заказ, и верни объект вида `{ pizza: 3, sushi: 2, burger: 1 }`.
+
+12. Дан массив `const arr = [1, , 3, , 5];` (с дырами). Напиши три разных перебора (`forEach`, обычный `for`, `for...of`) и объясни (в комментарии), почему они выводят разный результат. Проверь также `arr.hasOwnProperty(1)` и `1 in arr`.
+
+13. Дан массив объектов с вложенными объектами:
+    ```js
+    const students = [{ name: "Alice", grades: { math: 90 } }];
+    ```
+    Сделай shallow copy через `[...students]` и измени `grades.math` у копии — проверь, что оригинал тоже изменился. Затем сделай deep copy через `structuredClone()` и покажи, что теперь оригинал не меняется.
+
+14. Напиши функцию `chunk(arr, size)`, которая разбивает массив на подмассивы указанного размера, используя только методы массива (без `for`). Например: `chunk([1,2,3,4,5], 2)` → `[[1,2], [3,4], [5]]`. Подсказка: пригодится `reduce()`.
+
+15. Дан массив чисел `const arr = [3, 7, 1, 9, 4, 7, 3, 2];`. Реализуй без использования `Set`:
+    - функцию `unique(arr)`, которая убирает дубликаты, используя `filter()` + `indexOf()`;
+    - функцию `unique2(arr)`, делающую то же самое через `reduce()`.
+
+    Сравни оба решения и подумай, какое из них эффективнее и почему.
