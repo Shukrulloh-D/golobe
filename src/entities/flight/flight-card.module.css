@@ -1,0 +1,4 @@
+.card { background: var(--white); padding: 20px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 16px rgba(17,34,17,0.05); }
+.info h4 { margin-bottom: 6px; }
+.info p { color: var(--gray); font-size: 14px; }
+.price { font-size: 22px; font-weight: 700; color: #ff8682; }

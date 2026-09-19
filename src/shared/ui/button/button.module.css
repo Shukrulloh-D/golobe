@@ -1,21 +1,6 @@
-.button {
-  padding: 12px 24px;
-  border-radius: 8px;
-  border: none;
-  font-weight: 600;
-  transition: 0.2s;
-}
-.primary {
-  background-color: var(--color-primary);
-  color: var(--color-dark);
-}
-.primary:hover {
-  background-color: #7ac2aa;
-}
-.dark {
-  background-color: var(--color-dark);
-  color: var(--color-white);
-}
-.dark:hover {
-  opacity: 0.8;
-}
+.button { padding: 12px 24px; border-radius: 8px; font-weight: 600; transition: 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.primary { background: var(--primary); color: var(--dark); }
+.primary:hover { background: #7ac2aa; }
+.dark { background: var(--dark); color: var(--white); }
+.dark:hover { opacity: 0.8; }
+.outline { background: transparent; border: 1px solid var(--primary); color: var(--dark); }
