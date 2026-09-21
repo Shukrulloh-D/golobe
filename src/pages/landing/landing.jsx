@@ -2,6 +2,7 @@ import { HeroSection } from './components/hero-section/hero-section';
 import { PlanTrip } from './components/plan-trip/plan-trip';
 import { Banners } from './components/banners/banners';
 import { Reviews } from './components/reviews/reviews';
+import { InteractiveMap, StatsSection } from 'widgets/interactive-map';
 import { useReveal } from 'shared/lib/hooks';
 import styles from './landing.module.css';
 
@@ -15,8 +16,10 @@ export const LandingPage = () => (
     <HeroSection />
     <div className={styles.sectionWrap}>
       <RevealSection><PlanTrip /></RevealSection>
-      <RevealSection delay="revealDelay1"><Banners /></RevealSection>
-      <RevealSection delay="revealDelay2"><Reviews /></RevealSection>
+      <RevealSection><StatsSection /></RevealSection>
+      <RevealSection delay="revealDelay1"><InteractiveMap /></RevealSection>
+      <RevealSection delay="revealDelay2"><Banners /></RevealSection>
+      <RevealSection delay="revealDelay3"><Reviews /></RevealSection>
     </div>
   </div>
 );

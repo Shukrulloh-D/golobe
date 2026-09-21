@@ -1,0 +1,10 @@
+.wrap { display: flex; flex-direction: column; gap: 4px; }
+.number {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--dark);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+.label { font-size: 13px; color: var(--gray); font-weight: 600; }
+.suffix { color: var(--primary-dark); }

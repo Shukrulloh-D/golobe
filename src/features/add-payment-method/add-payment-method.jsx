@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Input } from 'shared/ui/input';
 import { Button } from 'shared/ui/button';
+import { Confetti } from 'shared/ui/animations';
 import { addCard } from 'shared/lib/cards';
 import { useToast } from 'shared/lib/toast';
 import styles from './add-payment-method.module.css';
@@ -10,6 +11,7 @@ export const AddPaymentMethod = ({ onSuccess }) => {
   const [form, setForm] = useState({ number: '', exp: '', cvc: '', name: '', country: 'United States' });
   const [save, setSave] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const update = (k, v) => setForm({ ...form, [k]: v });
 
@@ -30,10 +32,21 @@ export const AddPaymentMethod = ({ onSuccess }) => {
         country: form.country,
       });
       setLoading(false);
-      toast('Card added successfully!');
-      onSuccess?.();
+      setSuccess(true);
+      setTimeout(() => { onSuccess?.(); }, 1200);
     }, 700);
   };
+
+  if (success) {
+    return (
+      <div style={{ textAlign: 'center', padding: '40px 0' }}>
+        <Confetti count={25} />
+        <div style={{ fontSize: 60, marginBottom: 16, animation: 'fadeInScale 0.5s ease' }}>🎉</div>
+        <h2 style={{ marginBottom: 8 }}>Card added!</h2>
+        <p style={{ color: 'var(--gray)', fontSize: 14 }}>Your card is now saved.</p>
+      </div>
+    );
+  }
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -69,7 +82,7 @@ export const AddPaymentMethod = ({ onSuccess }) => {
         {loading ? <><span className="loader" /> Adding...</> : 'Add Card'}
       </Button>
       <div className={styles.disclaimer}>
-        By confirming your subscription, you allow The Outbound Inn Crowd Limited to charge your card for this payment and future payments in accordance with their terms.
+        By confirming your subscription, you allow The Outbound Inn Crowd Limited to charge your card for this payment and future payments.
       </div>
     </form>
   );

@@ -1,0 +1,13 @@
+.wrap {
+  position: fixed;
+  right: 40px;
+  bottom: 100px;
+  pointer-events: none;
+  z-index: 400;
+  animation: balloonFloat 6s ease-in-out infinite;
+}
+.wrapLeft {
+  right: auto;
+  left: 40px;
+}
+.balloon svg { width: 80px; height: 110px; filter: drop-shadow(0 8px 20px rgba(255,134,130,0.3)); }

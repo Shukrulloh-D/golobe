@@ -1,0 +1,19 @@
+.wrap {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10000;
+  overflow: hidden;
+}
+.piece {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: confetti 1.5s ease-out forwards;
+}
+.star { border-radius: 2px; }
+.heart::before { content: '♥'; color: inherit; font-size: 14px; }
+.plane::before { content: '✈'; color: inherit; font-size: 14px; }

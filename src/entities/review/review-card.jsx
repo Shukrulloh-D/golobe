@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { TiltCard } from 'shared/ui/animations';
 import styles from './review-card.module.css';
 
 const GoogleIcon = () => (
@@ -15,19 +16,21 @@ export const ReviewCard = ({ review }) => {
   const longText = review.text + ' ' + review.text + ' ' + review.text;
 
   return (
-    <div className={styles.card}>
-      <h4 className={styles.title}>{review.title}</h4>
-      <p className={styles.text}>{expanded ? longText : review.text}</p>
-      <button className={styles.more} onClick={() => setExpanded(!expanded)} style={{ background: 'transparent', fontFamily: 'inherit' }}>
-        {expanded ? 'View less' : 'View more'}
-      </button>
-      <div className={styles.stars}>{'★'.repeat(review.rating)}</div>
-      <div className={styles.authorBlock}>
-        <div className={styles.author}>{review.author}</div>
-        <div className={styles.company}>{review.company}</div>
+    <TiltCard intensity={7}>
+      <div className={styles.card}>
+        <h4 className={styles.title}>{review.title}</h4>
+        <p className={styles.text}>{expanded ? longText : review.text}</p>
+        <button className={styles.more} onClick={() => setExpanded(!expanded)} style={{ background: 'transparent', fontFamily: 'inherit' }}>
+          {expanded ? 'View less' : 'View more'}
+        </button>
+        <div className={styles.stars}>{'★'.repeat(review.rating)}</div>
+        <div className={styles.authorBlock}>
+          <div className={styles.author}>{review.author}</div>
+          <div className={styles.company}>{review.company}</div>
+        </div>
+        <div className={styles.google}><GoogleIcon /> Google</div>
+        <img className={styles.img} src={review.img} alt={review.author} />
       </div>
-      <div className={styles.google}><GoogleIcon /> Google</div>
-      <img className={styles.img} src={review.img} alt={review.author} />
-    </div>
+    </TiltCard>
   );
 };

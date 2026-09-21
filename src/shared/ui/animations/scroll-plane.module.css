@@ -1,0 +1,22 @@
+.track {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 500;
+}
+.plane {
+  position: absolute;
+  transition: left 0.15s ease-out, top 0.15s ease-out;
+  color: var(--primary-dark);
+  filter: drop-shadow(0 6px 16px rgba(141,211,187,0.5));
+}
+.plane svg { width: 50px; height: 50px; transform: rotate(90deg); }
+.trail {
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  height: 2px;
+  background: linear-gradient(to left, var(--primary), transparent);
+  border-radius: 2px;
+  transition: width 0.15s ease-out;
+}

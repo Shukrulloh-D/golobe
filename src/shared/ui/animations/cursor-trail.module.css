@@ -1,0 +1,22 @@
+.trail {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 9997;
+}
+.particle {
+  position: absolute;
+  pointer-events: none;
+  color: var(--primary);
+  font-size: 14px;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.4s ease;
+  will-change: transform, opacity;
+}
+.particle.active { opacity: 0.7; animation: trailFloat 1s ease-out forwards; }
+@keyframes trailFloat {
+  0% { opacity: 0.9; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+  100% { opacity: 0; transform: translate(-50%, -150%) scale(0.4) rotate(180deg); }
+}

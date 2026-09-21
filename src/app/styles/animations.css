@@ -1,224 +1,133 @@
-/* ============ FADE IN ============ */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ============ БАЗОВЫЕ ============ */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInScale { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes slideInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes shimmer { 0% { background-position: -468px 0; } 100% { background-position: 468px 0; } }
+@keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes buttonPress { 0% { transform: scale(1); } 50% { transform: scale(0.95); } 100% { transform: scale(1); } }
+
+/* ============ ОБЛАКА ============ */
+@keyframes cloudDrift {
+  from { transform: translateX(-300px); }
+  to { transform: translateX(calc(100vw + 300px)); }
 }
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+@keyframes cloudDriftSlow {
+  from { transform: translateX(-300px); }
+  to { transform: translateX(calc(100vw + 300px)); }
 }
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+
+/* ============ САМОЛЁТ ЛЕТИТ ЧЕРЕЗ ЭКРАН ============ */
+@keyframes flyAcross {
+  0% { transform: translateX(-150px) translateY(0) rotate(-2deg); }
+  25% { transform: translateX(25vw) translateY(-15px) rotate(0deg); }
+  50% { transform: translateX(50vw) translateY(0) rotate(2deg); }
+  75% { transform: translateX(75vw) translateY(-15px) rotate(0deg); }
+  100% { transform: translateX(calc(100vw + 150px)) translateY(0) rotate(-2deg); }
 }
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+
+/* ============ ВЗЛЁТ ============ */
+@keyframes takeoff {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+  100% { transform: translate(200vw, -150vh) rotate(45deg) scale(1.5); opacity: 0; }
 }
-@keyframes slideInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+
+/* ============ ПОСАДКА (для спиннера загрузки) ============ */
+@keyframes landing {
+  0% { transform: translate(100vw, -50vh) rotate(45deg); opacity: 0; }
+  60% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  80% { transform: translate(0, 5px) rotate(0deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
+
+/* ============ ЧЕМОДАН КАТИТСЯ ============ */
+@keyframes suitcaseRoll {
+  0% { transform: translateX(-80px) rotate(0deg); }
+  25% { transform: translateX(25%) rotate(180deg); }
+  50% { transform: translateX(50%) rotate(360deg); }
+  75% { transform: translateX(75%) rotate(540deg); }
+  100% { transform: translateX(calc(100vw + 80px)) rotate(720deg); }
 }
-@keyframes shimmer {
-  0% {
-    background-position: -468px 0;
-  }
-  100% {
-    background-position: 468px 0;
-  }
+@keyframes suitcaseBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+
+/* ============ ШАР ПАРИТ ============ */
+@keyframes balloonFloat {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-30px) rotate(3deg); }
 }
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+@keyframes balloonSway {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
 }
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+
+/* ============ СТРЕЛКА ВНИЗ ============ */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(10px); opacity: 0.5; }
+}
+
+/* ============ КОНФЕТТИ / ЧАСТИЦЫ ============ */
+@keyframes confetti {
+  0% { transform: translate(0, 0) scale(0) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(1) rotate(720deg); opacity: 0; }
+}
+
+/* ============ ЗВЕЗДА ============ */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* ============ ПУЛЬСАЦИЯ ТОЧКИ ============ */
+@keyframes ping {
+  0% { transform: scale(1); opacity: 1; }
+  75%, 100% { transform: scale(2); opacity: 0; }
 }
 
 /* ============ REVEAL ON SCROLL ============ */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.revealDelay1 {
-  transition-delay: 0.1s;
-}
-.revealDelay2 {
-  transition-delay: 0.2s;
-}
-.revealDelay3 {
-  transition-delay: 0.3s;
-}
-.revealDelay4 {
-  transition-delay: 0.4s;
-}
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.revealDelay1 { transition-delay: 0.1s; }
+.revealDelay2 { transition-delay: 0.2s; }
+.revealDelay3 { transition-delay: 0.3s; }
+.revealDelay4 { transition-delay: 0.4s; }
+
+/* ============ HOVER ============ */
+.hoverLift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.hoverLift:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(17,34,17,0.12); }
 
 /* ============ PAGE TRANSITIONS ============ */
-.pageFadeIn {
-  animation: fadeIn 0.5s ease;
-}
-.authSlideIn {
-  animation: slideInRight 0.6s ease;
-}
-.authSlideLeft {
-  animation: slideInLeft 0.6s ease;
-}
-
-/* ============ HOVER EFFECTS ============ */
-.hoverLift {
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-.hoverLift:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(17, 34, 17, 0.12);
-}
-
-.hoverScale {
-  transition: transform 0.3s ease;
-}
-.hoverScale:hover {
-  transform: scale(1.03);
-}
-
-/* ============ SKELETON ============ */
-.skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 37%, #f0f0f0 63%);
-  background-size: 400% 100%;
-  animation: shimmer 1.4s ease-in-out infinite;
-  border-radius: 6px;
-}
-
-/* ============ BUTTON PRESS ============ */
-.button,
-button {
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
-}
-.button:active,
-button:active {
-  transform: scale(0.97);
-}
+.pageFadeIn { animation: fadeIn 0.5s ease; }
 
 /* ============ LOADER ============ */
 .loader {
-  width: 20px;
-  height: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  width: 20px; height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
   border-top-color: white;
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
   display: inline-block;
 }
 
-/* ============ COVER ANIMATION (Account) ============ */
-.animatedCover {
-  background-size: 200% 200% !important;
-  animation: gradientShift 8s ease infinite;
-}
-
-/* ============ TOAST IMPROVED ============ */
+/* ============ TOAST ============ */
 .toast {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: var(--dark);
-  color: white;
-  padding: 14px 24px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: fixed; bottom: 30px; right: 30px;
+  background: var(--dark); color: white;
+  padding: 14px 24px; border-radius: 8px;
+  font-size: 14px; font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   z-index: 9999;
   animation: slideInRight 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* ============ MODAL ============ */
 @keyframes modalIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9) translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
-@keyframes backdropIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+@keyframes backdropIn { from { opacity: 0; } to { opacity: 1; } }

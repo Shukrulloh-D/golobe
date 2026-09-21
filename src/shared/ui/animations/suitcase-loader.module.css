@@ -1,0 +1,35 @@
+.wrap {
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.95);
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  animation: fadeIn 0.3s ease;
+}
+.track {
+  position: relative;
+  width: 300px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.suitcase {
+  position: absolute;
+  animation: suitcaseRoll 2s linear infinite;
+  color: var(--dark);
+}
+.suitcase svg { width: 60px; height: 60px; }
+.road {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, var(--primary) 0 20px, transparent 20px 40px);
+  border-radius: 2px;
+}
+.label { font-size: 14px; font-weight: 600; color: var(--dark); }

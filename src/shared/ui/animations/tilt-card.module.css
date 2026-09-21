@@ -1,0 +1,12 @@
+.tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  will-change: transform;
+}
+.tilt:hover {
+  box-shadow: 0 30px 60px rgba(17,34,17,0.15);
+}
+.inner {
+  transform: translateZ(30px);
+  transform-style: preserve-3d;
+}
