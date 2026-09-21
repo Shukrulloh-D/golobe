@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useToast } from 'shared/lib/toast';
-import styles from './flight-card.module.css';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useToast } from "shared/lib/toast";
+import styles from "./flight-card.module.css";
 
 export const FlightCard = ({ flight }) => {
   const navigate = useNavigate();
@@ -37,17 +37,29 @@ export const FlightCard = ({ flight }) => {
           <div>{f.duration}</div>
           <div>{f.stops}</div>
         </div>
-        <div className={styles.timeBlock} style={{ textAlign: 'right' }}>
+        <div className={styles.timeBlock} style={{ textAlign: "right" }}>
           <div className={styles.time}>{f.arriveTime}</div>
           <div className={styles.sub}>{f.to}</div>
         </div>
       </div>
 
       <div className={styles.bottomRow}>
-        <button className={styles.heart} style={{ color: liked ? 'var(--red)' : 'inherit' }} onClick={() => { setLiked(!liked); toast(liked ? 'Removed from favourites' : 'Added to favourites'); }}>
-          {liked ? '♥' : '♡'}
+        <button
+          className={styles.heart}
+          style={{ color: liked ? "var(--red)" : "inherit" }}
+          onClick={() => {
+            setLiked(!liked);
+            toast(liked ? "Removed from favourites" : "Added to favourites");
+          }}
+        >
+          {liked ? "♥" : "♡"}
         </button>
-        <button className={styles.dealsBtn} onClick={() => navigate(`/flights/${flight.id}`)}>View Deals</button>
+        <button
+          className={styles.dealsBtn}
+          onClick={() => navigate(`/flights/${flight.id}`)}
+        >
+          View Deals
+        </button>
       </div>
     </div>
   );

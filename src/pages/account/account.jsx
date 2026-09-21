@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from 'shared/ui/button';
 import { Modal } from 'shared/ui/modal';
 import { AddPaymentMethod } from 'features/add-payment-method';
 import { useToast } from 'shared/lib/toast';
+import { getCards, removeCard } from 'shared/lib/cards';
 import { MOCK_FLIGHT_LISTINGS } from 'shared/api/mocks';
 import styles from './account.module.css';
 
@@ -23,20 +23,41 @@ export const AccountPage = () => {
   const [histTab, setHistTab] = useState(0);
   const [modal, setModal] = useState(false);
   const [cover, setCover] = useState(true);
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    setCards(getCards());
+    const refresh = () => setCards(getCards());
+    window.addEventListener('cards-updated', refresh);
+    return () => window.removeEventListener('cards-updated', refresh);
+  }, []);
 
   const handleChange = (label) => toast(`Editing ${label}...`);
   const handleDownload = (id) => toast(`Downloading ticket #${id}...`);
+  const handleRemoveCard = (id) => {
+    removeCard(id);
+    toast('Card removed');
+  };
 
   return (
-    <div className={styles.page}>
-      <div className={styles.cover} style={!cover ? { background: '#e0e0e0' } : {}}>
+    <div className={`${styles.page} pageFadeIn`}>
+      <div
+        className={`${styles.cover} ${cover ? styles.animatedCover : ''}`}
+        style={!cover ? { background: '#e0e0e0' } : {}}
+      >
         <button className={styles.coverBtn} onClick={() => { setCover(!cover); toast('Cover updated'); }}>
           📷 Upload new cover
         </button>
       </div>
 
       <div className={styles.avatarWrap}>
-        <img src="/images/user-avatar.png" alt="Avatar" className={styles.avatar} />
+        {/* Слот для картинки пользователя — замени путь на свой */}
+        <img
+          src="/images/account-avatar.png"
+          alt="Avatar"
+          className={styles.avatar}
+          onError={(e) => { e.target.src = '/images/user-avatar.png'; }}
+        />
         <div className={styles.editBadge} onClick={() => toast('Edit avatar')}>✎</div>
       </div>
 
@@ -78,17 +99,17 @@ export const AccountPage = () => {
             <button className={`${styles.histTab} ${histTab === 0 ? styles.active : ''}`} onClick={() => setHistTab(0)}>✈ Flights</button>
             <button className={`${styles.histTab} ${histTab === 1 ? styles.active : ''}`} onClick={() => setHistTab(1)}>🏨 Stays</button>
           </div>
-          {histTab === 0 && MOCK_FLIGHT_LISTINGS.slice(0, 3).map(f => (
-            <div key={f.id} className={styles.bookingCard}>
+          {histTab === 0 && MOCK_FLIGHT_LISTINGS.slice(0, 3).map((f, i) => (
+            <div key={i} className={styles.bookingCard} style={{ animationDelay: `${i * 0.05}s` }}>
               <div className={styles.bookingLogo}>
                 <img src="/images/emirates-logo.png" alt="logo" style={{ maxWidth: '100%', maxHeight: '100%' }} />
               </div>
               <div className={styles.bookingCol}>
-                <div className={styles.label}>✈ Newark(EWR)</div>
+                <div className={styles.label}>✈ From</div>
                 <div className={styles.value}>12:00 pm</div>
               </div>
               <div className={styles.bookingCol}>
-                <div className={styles.label}>✈ Newark(EWR)</div>
+                <div className={styles.label}>✈ To</div>
                 <div className={styles.value}>6:00 pm</div>
               </div>
               <div className={styles.bookingCol}>
@@ -112,29 +133,36 @@ export const AccountPage = () => {
       {tab === 2 && (
         <>
           <h3 className={styles.sectionTitle}>Payment methods</h3>
-          <div className={styles.cardsRow}>
-            <div className={styles.creditCard}>
-              <button className={styles.ccTrash} onClick={() => toast('Card removed')}>🗑</button>
-              <div>
-                <div className={styles.ccLabel}>CARD NUMBER</div>
-                <div className={styles.ccNumber}>•••• •••• •••• 4321</div>
+          <div className={styles.cardsGrid}>
+            {cards.map(card => (
+              <div key={card.id} className={styles.creditCard}>
+                <button className={styles.ccTrash} onClick={() => handleRemoveCard(card.id)}>🗑</button>
+                <div>
+                  <div className={styles.ccLabel}>CARD NUMBER</div>
+                  <div className={styles.ccNumber}>•••• •••• •••• {card.last4}</div>
+                </div>
+                <div>
+                  <div className={styles.ccLabel}>VALID THRU</div>
+                  <div className={styles.ccValidity}>{card.exp}</div>
+                </div>
+                <span className={styles.ccVisa}>VISA</span>
               </div>
-              <div>
-                <div className={styles.ccLabel}>VALID THRU</div>
-                <div className={styles.ccValidity}>02/27</div>
-              </div>
-              <span className={styles.ccVisa}>VISA</span>
-            </div>
+            ))}
             <button className={styles.addCard} onClick={() => setModal(true)}>
               <span className={styles.addPlus}>+</span>
               <span className={styles.addLabel}>Add a new card</span>
             </button>
           </div>
+          {cards.length === 0 && (
+            <p style={{ textAlign: 'center', color: 'var(--gray)', marginTop: 24 }}>
+              No saved cards yet. Add one to get started.
+            </p>
+          )}
         </>
       )}
 
       <Modal isOpen={modal} onClose={() => setModal(false)}>
-        <AddPaymentMethod onSuccess={() => { setModal(false); toast('Card added!'); }} />
+        <AddPaymentMethod onSuccess={() => { setModal(false); setCards(getCards()); }} />
       </Modal>
     </div>
   );

@@ -1,49 +1,178 @@
 .page { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
-.cover { position: relative; height: 280px; border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, #0d3b4f 0%, #1a5d6e 25%, #f5a623 50%, #ffd93d 100%); background-size: 200% 200%; background-position: 0% 100%; }
-.coverBtn { position: absolute; bottom: 20px; right: 24px; background: rgba(255,255,255,0.9); padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; gap: 6px; align-items: center; }
+
+/* COVER */
+.cover {
+  position: relative;
+  height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0d3b4f 0%, #1a5d6e 25%, #f5a623 50%, #ffd93d 100%);
+  background-size: 200% 200%;
+  background-position: 0% 100%;
+}
+.animatedCover {
+  animation: gradientShift 10s ease infinite;
+}
+.coverBtn {
+  position: absolute; bottom: 20px; right: 24px;
+  background: rgba(255,255,255,0.9); padding: 10px 18px; border-radius: 8px;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  display: flex; gap: 6px; align-items: center;
+  transition: all 0.25s ease;
+}
+.coverBtn:hover { background: white; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+
+/* AVATAR */
 .avatarWrap { position: relative; margin-top: -60px; text-align: center; }
-.avatar { width: 120px; height: 120px; border-radius: 50%; border: 4px solid white; object-fit: cover; margin: 0 auto; }
-.editBadge { position: absolute; bottom: 4px; right: calc(50% - 60px + 4px); width: 28px; height: 28px; border-radius: 50%; background: var(--red); color: white; display: flex; align-items: center; justify-content: center; font-size: 12px; border: 2px solid white; cursor: pointer; }
+.avatar {
+  width: 120px; height: 120px; border-radius: 50%;
+  border: 4px solid white; object-fit: cover;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.avatar:hover { transform: scale(1.05); }
+.editBadge {
+  position: absolute; bottom: 4px;
+  left: 50%; transform: translateX(44px);
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--red); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; border: 2px solid white; cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.editBadge:hover { transform: translateX(44px) scale(1.15); }
+
 .name { text-align: center; margin-top: 16px; font-size: 22px; font-weight: 700; }
 .email { text-align: center; color: var(--gray); font-size: 14px; margin-top: 4px; margin-bottom: 32px; }
 
-.tabs { display: grid; grid-template-columns: repeat(3, 1fr); background: white; border-radius: 12px; padding: 8px; box-shadow: 0 4px 16px rgba(17,34,17,0.05); margin-bottom: 32px; }
-.tab { padding: 14px; text-align: center; font-weight: 600; color: var(--gray); background: transparent; border-radius: 8px; cursor: pointer; font-size: 14px; border: none; font-family: inherit; }
+/* TABS */
+.tabs {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  background: white; border-radius: 12px; padding: 8px;
+  box-shadow: 0 4px 16px rgba(17,34,17,0.05); margin-bottom: 32px;
+}
+.tab {
+  padding: 14px; text-align: center; font-weight: 600;
+  color: var(--gray); background: transparent; border-radius: 8px;
+  cursor: pointer; font-size: 14px; border: none; font-family: inherit;
+  transition: all 0.25s ease;
+}
+.tab:hover { color: var(--dark); }
 .tab.active { color: var(--dark); border-bottom: 2px solid var(--primary); }
 
 .sectionTitle { font-size: 22px; font-weight: 700; margin-bottom: 20px; }
 
-.profileCard { background: white; border-radius: 16px; padding: 8px 32px; box-shadow: 0 4px 16px rgba(17,34,17,0.05); }
-.profileRow { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #f0f0f0; }
+/* PROFILE */
+.profileCard {
+  background: white; border-radius: 16px; padding: 8px 32px;
+  box-shadow: 0 4px 16px rgba(17,34,17,0.05);
+  animation: fadeIn 0.5s ease;
+}
+.profileRow {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 0; border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s ease;
+}
 .profileRow:last-child { border-bottom: none; }
+.profileRow:hover { background: #fafafa; margin: 0 -32px; padding-left: 32px; padding-right: 32px; }
 .profileLabel { font-size: 12px; color: var(--gray); margin-bottom: 4px; }
 .profileValue { font-size: 15px; font-weight: 600; }
-.changeBtn { padding: 8px 16px; border: 1px solid #e0e0e0; background: white; border-radius: 6px; font-size: 12px; cursor: pointer; font-weight: 600; transition: 0.2s; }
-.changeBtn:hover { border-color: var(--primary); background: #f9fffc; }
 .changeBtnRow { display: flex; gap: 8px; }
+.changeBtn {
+  padding: 8px 16px; border: 1px solid #e0e0e0; background: white;
+  border-radius: 6px; font-size: 12px; cursor: pointer; font-weight: 600;
+  transition: all 0.2s ease; font-family: inherit;
+}
+.changeBtn:hover { border-color: var(--primary); background: #f9fffc; transform: translateY(-1px); }
 
-/* History tab */
-.histTabs { display: grid; grid-template-columns: 1fr 1fr; background: white; border-radius: 12px; padding: 8px; box-shadow: 0 4px 16px rgba(17,34,17,0.05); margin-bottom: 24px; }
-.histTab { padding: 14px; text-align: center; font-weight: 600; color: var(--gray); background: transparent; cursor: pointer; font-size: 14px; border: none; font-family: inherit; display: flex; gap: 8px; align-items: center; justify-content: center; }
+/* HISTORY */
+.histTabs {
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: white; border-radius: 12px; padding: 8px;
+  box-shadow: 0 4px 16px rgba(17,34,17,0.05); margin-bottom: 24px;
+}
+.histTab {
+  padding: 14px; text-align: center; font-weight: 600;
+  color: var(--gray); background: transparent; cursor: pointer;
+  font-size: 14px; border: none; font-family: inherit;
+  display: flex; gap: 8px; align-items: center; justify-content: center;
+  transition: all 0.25s ease;
+}
 .histTab.active { color: var(--dark); border-bottom: 2px solid var(--primary); }
-.bookingCard { background: white; border-radius: 12px; padding: 20px 24px; display: grid; grid-template-columns: auto 1fr 1fr 1fr 1fr auto auto; gap: 24px; align-items: center; margin-bottom: 12px; box-shadow: 0 4px 16px rgba(17,34,17,0.04); }
-.bookingLogo { width: 60px; height: 60px; border-radius: 8px; background: #f9f9f9; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--gray); padding: 6px; text-align: center; }
+
+.bookingCard {
+  background: white; border-radius: 12px; padding: 20px 24px;
+  display: grid; grid-template-columns: auto 1fr 1fr 1fr 1fr auto auto;
+  gap: 24px; align-items: center; margin-bottom: 12px;
+  box-shadow: 0 4px 16px rgba(17,34,17,0.04);
+  animation: fadeIn 0.4s ease;
+  transition: all 0.25s ease;
+}
+.bookingCard:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(17,34,17,0.08); }
+.bookingLogo {
+  width: 60px; height: 60px; border-radius: 8px; background: #f9f9f9;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: var(--gray); padding: 6px; text-align: center;
+}
 .bookingCol { font-size: 13px; }
 .bookingCol .label { color: var(--gray); font-size: 11px; margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
 .bookingCol .value { font-weight: 700; font-size: 14px; }
-.downloadBtn { background: var(--primary); padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 13px; cursor: pointer; border: none; font-family: inherit; }
-.downloadBtn:hover { background: var(--primary-dark); }
-.arrowBtn { width: 36px; height: 36px; border: 1px solid #e0e0e0; border-radius: 6px; background: white; cursor: pointer; }
+.downloadBtn {
+  background: var(--primary); padding: 10px 16px; border-radius: 6px;
+  font-weight: 600; font-size: 13px; cursor: pointer; border: none;
+  font-family: inherit; transition: all 0.2s ease;
+}
+.downloadBtn:hover { background: var(--primary-dark); transform: translateY(-2px); }
+.arrowBtn {
+  width: 36px; height: 36px; border: 1px solid #e0e0e0; border-radius: 6px;
+  background: white; cursor: pointer; transition: all 0.2s ease; font-size: 16px;
+}
+.arrowBtn:hover { border-color: var(--primary); transform: translateX(3px); }
 
-/* Payment tab */
-.cardsRow { display: grid; grid-template-columns: 320px 1fr; gap: 24px; }
-.creditCard { background: linear-gradient(135deg, #8dd3bb 0%, #6fc0a3 100%); border-radius: 16px; padding: 24px; color: var(--dark); position: relative; height: 200px; display: flex; flex-direction: column; justify-content: space-between; }
+/* PAYMENT CARDS */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.creditCard {
+  background: linear-gradient(135deg, #8dd3bb 0%, #6fc0a3 100%);
+  border-radius: 16px; padding: 24px; color: var(--dark);
+  position: relative; height: 200px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  animation: fadeInScale 0.4s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.creditCard:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(141,211,187,0.4); }
 .ccNumber { font-size: 22px; font-weight: 700; letter-spacing: 2px; }
 .ccLabel { font-size: 11px; opacity: 0.7; }
 .ccValidity { font-size: 14px; font-weight: 700; }
-.ccTrash { position: absolute; top: 16px; right: 16px; cursor: pointer; background: transparent; font-size: 16px; }
-.ccVisa { position: absolute; bottom: 16px; right: 16px; background: var(--dark); color: white; padding: 4px 10px; border-radius: 4px; font-weight: 700; font-size: 11px; }
-.addCard { border: 2px dashed var(--primary); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; cursor: pointer; background: transparent; height: 200px; font-family: inherit; }
-.addCard:hover { background: #f9fffc; }
-.addPlus { width: 48px; height: 48px; border: 1px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--primary); }
+.ccTrash {
+  position: absolute; top: 16px; right: 16px; cursor: pointer;
+  background: transparent; font-size: 16px; opacity: 0.5;
+  transition: all 0.2s ease;
+}
+.ccTrash:hover { opacity: 1; transform: scale(1.2); }
+.ccVisa {
+  position: absolute; bottom: 16px; right: 16px;
+  background: var(--dark); color: white; padding: 4px 10px;
+  border-radius: 4px; font-weight: 700; font-size: 11px;
+}
+.addCard {
+  border: 2px dashed var(--primary); border-radius: 16px; padding: 24px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 12px; cursor: pointer; background: transparent; height: 200px;
+  font-family: inherit; transition: all 0.3s ease;
+}
+.addCard:hover {
+  background: #f9fffc; border-color: var(--primary-dark);
+  transform: translateY(-4px); box-shadow: 0 12px 28px rgba(141,211,187,0.2);
+}
+.addPlus {
+  width: 48px; height: 48px; border: 1px solid var(--primary); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; color: var(--primary); transition: transform 0.3s ease;
+}
+.addCard:hover .addPlus { transform: rotate(90deg) scale(1.1); }
 .addLabel { color: var(--primary); font-weight: 600; font-size: 13px; }

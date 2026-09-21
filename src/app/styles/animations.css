@@ -1,0 +1,118 @@
+/* ============ FADE IN ============ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+@keyframes shimmer {
+  0% { background-position: -468px 0; }
+  100% { background-position: 468px 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ============ REVEAL ON SCROLL ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.revealDelay1 { transition-delay: 0.1s; }
+.revealDelay2 { transition-delay: 0.2s; }
+.revealDelay3 { transition-delay: 0.3s; }
+.revealDelay4 { transition-delay: 0.4s; }
+
+/* ============ PAGE TRANSITIONS ============ */
+.pageFadeIn { animation: fadeIn 0.5s ease; }
+.authSlideIn { animation: slideInRight 0.6s ease; }
+.authSlideLeft { animation: slideInLeft 0.6s ease; }
+
+/* ============ HOVER EFFECTS ============ */
+.hoverLift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.hoverLift:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(17,34,17,0.12); }
+
+.hoverScale { transition: transform 0.3s ease; }
+.hoverScale:hover { transform: scale(1.03); }
+
+/* ============ SKELETON ============ */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 37%, #f0f0f0 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+/* ============ BUTTON PRESS ============ */
+.button, button { transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease; }
+.button:active, button:active { transform: scale(0.97); }
+
+/* ============ LOADER ============ */
+.loader {
+  width: 20px; height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+/* ============ COVER ANIMATION (Account) ============ */
+.animatedCover {
+  background-size: 200% 200% !important;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* ============ TOAST IMPROVED ============ */
+.toast {
+  position: fixed; bottom: 30px; right: 30px;
+  background: var(--dark); color: white;
+  padding: 14px 24px; border-radius: 8px;
+  font-size: 14px; font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  z-index: 9999;
+  animation: slideInRight 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============ MODAL ============ */
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
