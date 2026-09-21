@@ -1,8 +1,12 @@
-.footer { background: var(--primary); padding: 60px 40px 20px; margin-top: 80px; }
-.inner { max-width: 1440px; margin: 0 auto; display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
-.links { display: flex; gap: 60px; }
-.column h4 { margin-bottom: 16px; font-weight: 700; }
-.column a { display: block; margin-bottom: 8px; color: var(--dark); opacity: 0.8; }
+.footer { background-color: #8dd3bb; padding: 260px 80px 60px; color: #112211; position: relative; }
+.inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 40px; }
+.brand { display: flex; flex-direction: column; gap: 20px; }
+.logo { display: block; margin-bottom: 4px; }
+.logo img { height: 36px; width: auto; }
+.socials { display: flex; gap: 14px; }
+.socials a { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: #112211; transition: opacity 0.2s; }
+.socials a:hover { opacity: 0.6; }
+.socials svg { width: 18px; height: 18px; }
+.column h4 { font-size: 15px; font-weight: 700; margin-bottom: 20px; color: #112211; }
+.column a { display: block; margin-bottom: 12px; color: #112211; opacity: 0.8; font-size: 14px; transition: opacity 0.2s; }
 .column a:hover { opacity: 1; }
-.subscribe h4 { margin-bottom: 16px; }
-.subscribe-row { display: flex; gap: 10px; }

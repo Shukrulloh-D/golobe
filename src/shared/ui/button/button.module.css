@@ -1,6 +1,40 @@
-.button { padding: 12px 24px; border-radius: 8px; font-weight: 600; transition: 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
-.primary { background: var(--primary); color: var(--dark); }
-.primary:hover { background: #7ac2aa; }
-.dark { background: var(--dark); color: var(--white); }
-.dark:hover { opacity: 0.8; }
-.outline { background: transparent; border: 1px solid var(--primary); color: var(--dark); }
+.button {
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+}
+.primary {
+  background: var(--primary);
+  color: var(--dark);
+}
+.primary:hover {
+  background: #7ac2aa;
+}
+.dark {
+  background: var(--dark);
+  color: var(--white);
+}
+.dark:hover {
+  opacity: 0.85;
+}
+.light {
+  background: var(--white);
+  color: var(--dark);
+}
+.light:hover {
+  background: #f0f0f0;
+}
+.outline {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--dark);
+}
+.outline:hover {
+  background: var(--primary);
+}

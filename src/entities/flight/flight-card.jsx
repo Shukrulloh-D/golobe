@@ -1,17 +1,48 @@
-import { Button } from 'shared/ui/button';
+import { useNavigate } from 'react-router-dom';
 import styles from './flight-card.module.css';
 
-export const FlightCard = ({ flight }) => (
-  <div className={styles.card}>
-    <div className={styles.info}>
-      <h4>✈️ {flight.airline}</h4>
-      <p>{flight.from} — {flight.to}</p>
-      <p>{flight.time}</p>
-      <p>⭐ {flight.rating}</p>
+export const FlightCard = ({ flight }) => {
+  const navigate = useNavigate();
+  const f = flight.flights[0];
+
+  return (
+    <div className={styles.card}>
+      <div className={styles.topRow}>
+        <div className={styles.airlineInfo}>
+          <img src={f.logo} alt={f.airline} className={styles.airlineLogo} />
+          <div className={styles.ratingBlock}>
+            <div className={styles.ratingRow}>
+              <span className={styles.ratingBadge}>{f.rating}</span>
+              <span>Very Good {f.reviews} reviews</span>
+            </div>
+          </div>
+        </div>
+        <div className={styles.priceBlock}>
+          <div className={styles.startFrom}>starting from</div>
+          <div className={styles.price}>${f.price}</div>
+        </div>
+      </div>
+
+      <div className={styles.middleRow}>
+        <div className={styles.timeBlock}>
+          <div className={styles.time}>{f.departTime}</div>
+          <div className={styles.sub}>{f.from}</div>
+        </div>
+        <div className={styles.midLine}>
+          <div>——— ✈ ———</div>
+          <div>{f.duration}</div>
+          <div>{f.stops}</div>
+        </div>
+        <div className={styles.timeBlock} style={{ textAlign: 'right' }}>
+          <div className={styles.time}>{f.arriveTime}</div>
+          <div className={styles.sub}>{f.to}</div>
+        </div>
+      </div>
+
+      <div className={styles.bottomRow}>
+        <button className={styles.heart} onClick={() => console.log('favourite', flight.id)}>♡</button>
+        <button className={styles.dealsBtn} onClick={() => navigate(`/flights/${flight.id}`)}>View Deals</button>
+      </div>
     </div>
-    <div>
-      <div className={styles.price}>${flight.price}</div>
-      <Button>View Details</Button>
-    </div>
-  </div>
-);
+  );
+};

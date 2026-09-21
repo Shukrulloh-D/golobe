@@ -1,1 +1,25 @@
-.page { padding: 40px; text-align: center; max-width: 1440px; margin: 0 auto; }
+.page { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
+.breadcrumbs { font-size: 13px; color: var(--gray); margin-bottom: 20px; }
+.breadcrumbs span { color: #ff8682; }
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; }
+.title h1 { font-size: 30px; font-weight: 700; margin-bottom: 8px; }
+.title p { color: var(--gray); font-size: 13px; }
+.badge { display: inline-block; background: #f0f0f0; padding: 4px 10px; border-radius: 4px; font-size: 12px; margin-top: 8px; }
+.actions { display: flex; gap: 12px; align-items: center; }
+.iconBtn { width: 40px; height: 40px; border: 1px solid #e0e0e0; background: white; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.image { width: 100%; height: 420px; object-fit: cover; border-radius: 16px; margin-bottom: 32px; }
+.sectionTitle { font-size: 20px; font-weight: 700; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; }
+.classes { display: flex; gap: 20px; font-size: 13px; }
+.classes label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.featureRow { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 24px; }
+.featureRow img { width: 100px; height: 80px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
+.policies { background: #e8f7f0; padding: 20px; border-radius: 12px; display: flex; gap: 40px; margin-bottom: 32px; font-size: 13px; }
+.flightCard { border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; }
+.flightCardRow { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.flightLogo { display: flex; align-items: center; gap: 12px; }
+.flightLogo img { height: 36px; }
+.flightLogo div strong { font-size: 15px; display: block; }
+.flightLogo div small { color: var(--gray); font-size: 12px; }
+.flightIcons { display: flex; gap: 12px; color: var(--gray); font-size: 14px; }
+.flightRoute { display: flex; align-items: center; gap: 24px; justify-content: center; font-weight: 700; }
+.flightRoute small { font-weight: 400; color: var(--gray); display: block; font-size: 11px; }

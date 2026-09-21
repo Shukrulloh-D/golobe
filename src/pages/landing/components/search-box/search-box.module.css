@@ -1,0 +1,8 @@
+.box { background: var(--white); border-radius: 16px; padding: 24px 32px 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12); }
+.tabs { display: flex; gap: 32px; margin-bottom: 24px; font-weight: 600; font-size: 14px; }
+.tab { display: flex; align-items: center; gap: 8px; color: var(--gray); padding-bottom: 12px; cursor: pointer; background: transparent; border: none; font-family: inherit; }
+.tab.active { color: var(--dark); border-bottom: 2px solid var(--primary); }
+.inputs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 20px; }
+.actions { display: flex; justify-content: flex-end; align-items: center; gap: 24px; }
+.promo { background: transparent; font-weight: 600; color: var(--dark); font-size: 14px; display: flex; align-items: center; gap: 6px; cursor: pointer; border: none; font-family: inherit; }
+.promo:hover { color: var(--primary); }
