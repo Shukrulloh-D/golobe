@@ -29,7 +29,6 @@ export const router = createBrowserRouter([
       { path: "account", element: <AccountPage /> },
     ],
   },
-  // Авторизация обычно без хедера и футера
   { path: "/login", element: <LoginPage /> },
   { path: "/signup", element: <SignupPage /> },
   { path: "/forgot-password", element: <ForgotPasswordPage /> },

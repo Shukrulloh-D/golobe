@@ -1,4 +1,16 @@
-.sidebar { background: var(--white); padding: 20px; border-radius: 12px; }
-.section { margin-bottom: 24px; }
-.section h4 { margin-bottom: 12px; }
-.checkbox { display: block; margin-bottom: 8px; font-size: 14px; }
+.sidebar {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 12px;
+}
+.section {
+  margin-bottom: 24px;
+}
+.section h4 {
+  margin-bottom: 12px;
+}
+.checkbox {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}

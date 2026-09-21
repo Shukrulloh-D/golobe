@@ -52,7 +52,7 @@ export const FlightCard = ({ flight }) => {
             toast(liked ? "Removed from favourites" : "Added to favourites");
           }}
         >
-          {liked ? "♥" : "♡"}
+          {liked ? "❤️" : "🎃"}
         </button>
         <button
           className={styles.dealsBtn}

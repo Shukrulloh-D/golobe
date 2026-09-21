@@ -1,12 +1,39 @@
-.wrap { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; background: white; }
-.left { padding: 40px 80px; display: flex; flex-direction: column; position: relative; }
-.logo { display: inline-flex; margin-bottom: 60px; animation: fadeIn 0.6s ease; }
-.logo img { height: 40px; }
-.form { flex: 1; max-width: 420px; width: 100%; margin: 0 auto; animation: fadeIn 0.7s ease 0.1s backwards; }
-.right { position: relative; overflow: hidden; padding: 20px; }
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background: white;
+}
+.left {
+  padding: 40px 80px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.logo {
+  display: inline-flex;
+  margin-bottom: 60px;
+  animation: fadeIn 0.6s ease;
+}
+.logo img {
+  height: 40px;
+}
+.form {
+  flex: 1;
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+  animation: fadeIn 0.7s ease 0.1s backwards;
+}
+.right {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
 .bgImage {
   position: absolute;
-  top: 20px; left: 20px;
+  top: 20px;
+  left: 20px;
   width: calc(100% - 40px);
   height: calc(100% - 40px);
   object-fit: cover;
@@ -14,16 +41,31 @@
   animation: fadeInScale 1s ease;
 }
 .dots {
-  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 8px; z-index: 2;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
 }
 .dot {
-  width: 10px; height: 4px; background: rgba(255,255,255,0.5);
-  border-radius: 2px; transition: 0.3s;
+  width: 10px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  transition: 0.3s;
 }
-.dotActive { background: white; width: 24px; }
+.dotActive {
+  background: white;
+  width: 24px;
+}
 
 @media (max-width: 900px) {
-  .wrap { grid-template-columns: 1fr; }
-  .right { display: none; }
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+  .right {
+    display: none;
+  }
 }
