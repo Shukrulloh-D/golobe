@@ -1,14 +1,29 @@
 :root {
   --primary: #8dd3bb;
+  --primary-dark: #7ac2aa;
+  --primary-light: #d1f0e1;
   --dark: #112211;
   --white: #ffffff;
   --gray: #797979;
+  --gray-light: #f0f0f0;
+  --red: #ff8682;
   --bg: #f7f7f7;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--dark); }
+html, body { scroll-behavior: smooth; }
+body { font-family: 'Montserrat', system-ui, sans-serif; background: var(--bg); color: var(--dark); -webkit-font-smoothing: antialiased; }
 a { text-decoration: none; color: inherit; }
 button { cursor: pointer; border: none; font-family: inherit; }
+input, select, textarea { font-family: inherit; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
 .container { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 30px; right: 30px; background: var(--dark); color: white;
+  padding: 14px 24px; border-radius: 8px; font-size: 14px; font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 9999;
+  animation: slideIn 0.3s ease;
+}
+@keyframes slideIn { from { transform: translateX(400px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }

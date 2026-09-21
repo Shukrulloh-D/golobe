@@ -1,1 +1,1 @@
-export * from './flight-card';
+export * from "./flight-card";

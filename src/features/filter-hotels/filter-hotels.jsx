@@ -1,4 +1,4 @@
-import styles from './filter-hotels.module.css';
+import styles from "./filter-hotels.module.css";
 
 export const FilterHotels = () => (
   <aside className={styles.sidebar}>
@@ -8,9 +8,15 @@ export const FilterHotels = () => (
     </div>
     <div className={styles.section}>
       <h4>Amenities</h4>
-      <label className={styles.checkbox}><input type="checkbox" /> Free breakfast</label>
-      <label className={styles.checkbox}><input type="checkbox" /> Free parking</label>
-      <label className={styles.checkbox}><input type="checkbox" /> Free internet</label>
+      <label className={styles.checkbox}>
+        <input type="checkbox" /> Free breakfast
+      </label>
+      <label className={styles.checkbox}>
+        <input type="checkbox" /> Free parking
+      </label>
+      <label className={styles.checkbox}>
+        <input type="checkbox" /> Free internet
+      </label>
     </div>
   </aside>
 );

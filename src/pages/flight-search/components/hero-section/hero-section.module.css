@@ -1,0 +1,32 @@
+.hero {
+  width: 100%;
+  height: 500px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("/images/flight-hero-bg.png") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: white;
+  text-align: left;
+  padding: 0 80px;
+}
+.hero h1 {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+  max-width: 600px;
+}
+.hero h1 span {
+  display: block;
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-top: 8px;
+}
+.hero p {
+  font-size: 20px;
+  margin-top: 16px;
+  opacity: 0.9;
+}
